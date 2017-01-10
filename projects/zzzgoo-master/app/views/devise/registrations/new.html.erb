@@ -1,0 +1,112 @@
+<br />
+<% content_for :title do %>
+チケットナビ新規会員登録 |チケット売買ならチケナビにお任せ!!
+<% end %>
+<div class="box777">
+    <h1>&emsp;新規会員登録（無料）</h1>
+
+     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+     <%= devise_error_messages! %>
+
+     <div class="field-login">
+      <%= f.label :Emailアドレス記入 %><br />
+    </div>
+      <div class="text-menu-login">
+        <br />
+        <span style="color:#ff0000;">&emsp;<small>*必須</small></span>
+        <%= f.email_field :email, autofocus: true %>
+     </div>
+<br />
+
+     <div class="field-login">
+       <%= f.label :お好きなパスワード（6文字以上） %>
+       <% if @minimum_password_length %>
+      <% end %><br />
+    </div>
+      <div class="text-menu-login">
+        <br />
+        <span style="color:#ff0000;">&emsp;<small>*必須</small></span>
+       <%= f.password_field :password, autocomplete: "off" %>
+     </div>
+<br />
+
+     <div class="field-login">
+      <%= f.label :確認の為、パスワード再入力%><br />
+    </div>
+      <div class="text-menu-login">
+        <br />
+        <span style="color:#ff0000;">&emsp;<small>*必須</small></span>
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+     </div>
+<br />
+
+  <strong><%= link_to '利用規約', home_kiyaku_path, :target=>["_blank"] %></strong>、<strong><%= link_to 'プライバシーポリシー' , home_puraibashi_path, :target=>["_blank"] %></strong>に同意し、会員登録
+
+  <div class="actions">
+    <%= f.submit "会員登録",:class => "submit-button", data: {
+      confirm: '宜しければ、仮会員登録を行います。ご登録されたメールアドレスへ本登録用の認証メールを送信しますので、開封し本登録用リンクからログインしてください。今後ともチケットナビを宜しくお願い致します。',
+      disable_with: '送信中...'} %>
+  </div>
+  <p>登録済みの方は<%= link_to "こちらからログイン", user_session_path %></p>
+<% end %>
+</div>
+
+<div class="payment-box clearfix">
+   <div class="payment-title">
+     <h1>チケット購入時のお支払い方法</h1>
+     <p>※今後、お客様の利便性を考えお支払い方法を随時増やす予定ですので、暫くお待ち下さい。</p>
+     <p>※全ての支払い方法に共通の決済手数料はご負担下さい。&emsp;詳しくは<%= link_to "こちらへ" ,home_kakaku_path %></p>
+   </div>
+
+  <div align="center">
+   <div class="payment-content-left">
+    <h3><strong>クレジットカード払い</strong></h3>
+      <%= image_tag"card_01.gif", :size => "230x80" %>
+    <br /><br />
+      <p><strong><span style="color: brown;">ご利用可能カードブランド</span></strong></p>
+      <p>VISA、MasterCard</p>
+    <br />
+    <p><strong><span style="color: brown;">お支払い回数</span></strong></p>
+    一括、3回払い、6回払い、<br />10回払い、12回払い、15回払い、<br />18回払い、24回払いから選択可能
+   </div>
+
+  <div class="payment-content-center">
+     <h3><strong>コンビニ払い</strong></h3>
+     <%= image_tag"cnv_no_l.gif", :size => "280x140" %>
+     <br /><br />
+     <p><strong><span style="color: brown;">対応コンビニ</span></strong>
+     <p>ローソン、ファミリーマート、
+        サークルKサンクス、ミニストップ、
+        デイリーヤマザキ、セイコーマート、ヤマザキデイリーストア</p>
+      <br />
+        <p><strong><span style="color: brown;">お支払い方法</span></strong>
+        <p>コンビニ払いでは現金のみ対応。<br />お支払い金額が30万円以下の場合に<br />のみご利用可。</p>
+  </div>
+   <div class="payment-content-right">
+    <h3><strong>銀行振込</strong></h3>
+     <%= image_tag"banklogo.jpg", :size => "200x80" %>
+     <br /><br />
+     <p><strong><span style="color: brown;">使用方法</span></strong></p>
+     <p>所定の振込先へ入金をして頂ければ。</p>
+   </div>
+ </div>
+
+
+<div class="payment-box-under">
+    <div class="payment-box-content">
+      <p><strong>お支払い期限</strong></p>
+      <table id="tablebox-show">
+          <tr class="header">
+            <th class="tablebox111-right1105">状況</th>
+            <th class="tablebox111-right1105">&emsp;取引成立時のお支払い期限</th>
+          </tr>
+
+          <tr>
+            <td class="box999-showcopy">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;取引成立時</td>
+            <td class="tablebox111-showcopy">
+            <span style="color: red;">&emsp;&emsp;4時間以内</span>にお支払い
+            </td>
+          </tr>
+      </table>
+    </div>
+</div>
